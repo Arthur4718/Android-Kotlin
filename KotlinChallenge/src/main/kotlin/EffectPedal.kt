@@ -1,8 +1,8 @@
 
 enum class EffectType{
-    VOLUME, PITCH, BYPASS
+    CRYBABY, REVERB, DISTORTION
 }
 
-class EffectPedal(val name: String, val type: EffectType, val latency: Double) {
+class EffectPedal(val name: String, val type: EffectType, val volume: Double) {
 
 }
