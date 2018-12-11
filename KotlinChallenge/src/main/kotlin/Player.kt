@@ -3,14 +3,24 @@ class Player(val name : String, var age: Int = 1, var origin: String, var revenu
     var guitar: Guitar = Guitar("Stratocaster", 1964)
     var guitarEffects  = ArrayList<EffectPedal>()
     fun showStatus() {
-        println("""
+
+        if(age > 27){
+
+        }else{
+
+        }
+
+    }
+
+    override fun toString(): String {
+        return """
             name: $name
             age: $age
             origin: $origin
             revenue: $revenue
             guitar: ${guitar.name}
             value: ${guitar.value}
-            """)
+            """
     }
 
     fun showActivePedals(){
@@ -18,4 +28,5 @@ class Player(val name : String, var age: Int = 1, var origin: String, var revenu
         println(guitarEffects[0])
         println("==========================")
     }
+
 }
