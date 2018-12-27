@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         val button : Button = findViewById<Button>(R.id.button)
         textView = findViewById<TextView>(R.id.textview)
         textView?.text = ""
+        userInput.setText("")
         textView?.movementMethod = ScrollingMovementMethod()
 
         button.setOnClickListener(object : View.OnClickListener {
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
 
                 textView?.append(userInput.text)
                 textView?.append("\n")
+                //userInput.text.clear()
+                userInput.setText("")
 
             }
         })
