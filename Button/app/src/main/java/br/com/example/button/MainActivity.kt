@@ -10,7 +10,8 @@ import android.widget.EditText
 import android.widget.TextView
 
 
-private val TAG : String = "MainActivity"
+private const val TAG : String = "MainActivity"
+private const val TEXT_SAVED : String = ""
 
 class MainActivity : AppCompatActivity() {
 
@@ -48,6 +49,10 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         Log.d(TAG, "On Restore Instance State called")
         super.onRestoreInstanceState(savedInstanceState)
+        //restoring the text from the bundle
+        val savedString = savedInstanceState?.getString(TEXT_SAVED, "")
+        textView?.text = savedString
+
     }
 
     override fun onResume() {
@@ -63,6 +68,9 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle?) {
         Log.d(TAG, "On Save Instance State called")
         super.onSaveInstanceState(outState)
+        //saving the text with bundle
+        // ? is here because the object its nullble
+         outState?.putString(TEXT_SAVED, textView?.text.toString())
     }
 
     override fun onStop() {
