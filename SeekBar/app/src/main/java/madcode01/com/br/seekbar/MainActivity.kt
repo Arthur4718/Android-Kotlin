@@ -23,13 +23,13 @@ class MainActivity : AppCompatActivity() {
         val btnReset : Button = findViewById<Button>(R.id.btnReset)
 
         //Aplicando o valor inicial nos textviews
-        tvAltura.setText(seekbarAltura.progress / 10)
-        tvPeso.setText(seekbarPeso.progress / 10)
+        tvAltura.setText("Altura: 1.00", TextView.BufferType.NORMAL)
+        tvPeso.setText("Peso: 40.0", TextView.BufferType.NORMAL)
 
         //Quando o usuário mover as seekbars, tomaremos a ação de escrever os valores nos textvies.
         seekbarPeso.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                var pesoConvertido : Int = progress / 10
+                var pesoConvertido : Double = progress / 100.0
                 tvPeso.setText("Peso: $pesoConvertido")
 
             }
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         })
         seekbarAltura.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                var alturaConvertida : Int = progress / 10
+                var alturaConvertida : Double = progress / 10.0
                 tvAltura.setText("Altura: $alturaConvertida")
 
             }
