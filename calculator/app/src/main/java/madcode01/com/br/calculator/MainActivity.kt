@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.NumberFormatException
 
 class MainActivity : AppCompatActivity() {
 
@@ -53,10 +54,13 @@ class MainActivity : AppCompatActivity() {
 
         val operationListener  = View.OnClickListener { v ->
             val op = (v as Button).text.toString()
-            val value = newNumber.text.toString()
 
-            if(value.isNotEmpty()){
-                performOperation(value,op)
+            try{
+                val value = newNumber.text.toString()
+                performOperation(value, op)
+
+            }catch (e : NumberFormatException){
+                newNumber.setText("")
             }
             pendingOperation = op
             displayOperation.text = pendingOperation

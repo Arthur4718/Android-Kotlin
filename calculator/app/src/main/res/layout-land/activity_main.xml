@@ -156,7 +156,7 @@
             android:text="+"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/butonPlus" app:layout_constraintStart_toEndOf="@+id/buttonEquals"
+            android:id="@+id/buttonPlus" app:layout_constraintStart_toEndOf="@+id/buttonEquals"
             android:layout_marginStart="8dp" app:layout_constraintBaseline_toBaselineOf="@+id/buttonEquals"
             android:minWidth="48dp"/>
 </android.support.constraint.ConstraintLayout>
