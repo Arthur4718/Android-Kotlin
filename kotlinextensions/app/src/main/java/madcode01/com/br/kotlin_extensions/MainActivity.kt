@@ -2,8 +2,10 @@ package madcode01.com.br.kotlin_extensions
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,8 +13,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        tvShowCountry.setText("New Text")
 
         //setting up the array of text for the spinner
         ArrayAdapter.createFromResource(
@@ -25,5 +25,25 @@ class MainActivity : AppCompatActivity() {
             // Apply the adapter to the spinner
             mySpinner.adapter = adapter
         }
+
+        //An simple way of doing with an hardcoded array
+        val myCurrencies = arrayOf("BRL", "USD", "NAN")
+
+        spinnerCurrency.adapter = ArrayAdapter(applicationContext, android.R.layout.simple_spinner_item, myCurrencies)
+
+        spinnerCurrency.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                Toast.makeText(applicationContext, "Item Selected", Toast.LENGTH_SHORT).show()
+
+            }
+        }
+
+
+
+
     }
 }
