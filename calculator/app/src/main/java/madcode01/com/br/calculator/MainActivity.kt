@@ -2,12 +2,16 @@ package madcode01.com.br.calculator
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.NumberFormatException
+
+private const val STATE_PENDING_OPERATION = "PendingOperation"
+private const val STATE_OPERAND1 = "Operand1"
 
 class MainActivity : AppCompatActivity() {
 
@@ -99,5 +103,14 @@ class MainActivity : AppCompatActivity() {
         }
         result.setText(operand1.toString())
         newNumber.setText("")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+        if(operand1 != null){
+            outState?.putDouble(STATE_OPERAND1, operand1!!)
+
+        }
+        outState.putString(STATE_PENDING_OPERATION, pendingOperation)
     }
 }
