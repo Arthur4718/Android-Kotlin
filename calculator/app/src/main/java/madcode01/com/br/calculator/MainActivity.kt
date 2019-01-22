@@ -49,6 +49,51 @@ class MainActivity : AppCompatActivity() {
         button7.setOnClickListener (buttonListener)
         button8.setOnClickListener (buttonListener)
         button9.setOnClickListener (buttonListener)
+        buttonDot.setOnClickListener (buttonListener)
 
+        val operationListener  = View.OnClickListener { v ->
+            val op = (v as Button).text.toString()
+            val value = newNumber.text.toString()
+
+            if(value.isNotEmpty()){
+                performOperation(value,op)
+            }
+            pendingOperation = op
+            displayOperation.text = pendingOperation
+        }
+
+        buttonEquals.setOnClickListener(operationListener)
+        buttonDiv.setOnClickListener(operationListener)
+        buttonMulti.setOnClickListener(operationListener)
+        buttonMinus.setOnClickListener(operationListener)
+        buttonPlus.setOnClickListener(operationListener)
+
+    }
+
+    private fun performOperation(value : String, operation : String){
+        if(operand1 == null){
+            operand1 = value.toDouble()
+        }else{
+            operand2 = value.toDouble()
+
+            if(pendingOperation == "="){
+                pendingOperation = operation
+            }
+
+            when(pendingOperation){
+                "=" -> operand1 = operand2
+                "/" -> if(operand2 == 0.0 ){
+                    operand1 = Double.NaN // handle attempt do divide by zero
+                }else {
+                    operand1 = operand1!! / operand2
+                }
+                "*" -> operand1 = operand1!! * operand2
+                "-" -> operand1 = operand1!! * operand2
+                "+" -> operand1 = operand1!! * operand2
+
+            }
+        }
+        result.setText(operand1.toString())
+        newNumber.setText("")
     }
 }
