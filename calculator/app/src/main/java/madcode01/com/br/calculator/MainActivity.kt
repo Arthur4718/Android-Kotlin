@@ -12,6 +12,7 @@ import java.lang.NumberFormatException
 
 private const val STATE_PENDING_OPERATION = "PendingOperation"
 private const val STATE_OPERAND1 = "Operand1"
+private const val STATE_OPERAND1_STORED = "Operand1_Stored"
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity() {
 
         //Data Input Buttons
         //val button0 : Button  = findViewById<Button>(R.id.button0) old way, but it works
+
+
 
         //Listener for the buttons - pass the current text of the button to an operation
         val buttonListener = View.OnClickListener { v ->
@@ -111,6 +114,20 @@ class MainActivity : AppCompatActivity() {
             outState?.putDouble(STATE_OPERAND1, operand1!!)
 
         }
-        outState.putString(STATE_PENDING_OPERATION, pendingOperation)
+        outState?.putString(STATE_PENDING_OPERATION, pendingOperation)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        operand1 = if(savedInstanceState!!.getBoolean(STATE_OPERAND1_STORED, false)){
+            savedInstanceState!!.getDouble(STATE_OPERAND1)
+        } else{
+            null
+        }
+
+
+        pendingOperation = savedInstanceState.getString(STATE_PENDING_OPERATION)
+        displayOperation.text = pendingOperation
     }
 }
