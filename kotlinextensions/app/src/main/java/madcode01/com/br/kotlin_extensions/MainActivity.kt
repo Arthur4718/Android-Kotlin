@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         //setting up the array of text for the spinner
         ArrayAdapter.createFromResource(
             this,
-            R.array.countries_array,
+            R.array.Moedas,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears

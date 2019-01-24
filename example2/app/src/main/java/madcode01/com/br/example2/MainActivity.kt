@@ -1,37 +1,50 @@
 package madcode01.com.br.example2
 
+
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-//Buscando todos os ids contindos no documento, inclusive layout
+//Com esta biblioteca, carregamos todos os IDS da actvity main nesta página
 import kotlinx.android.synthetic.main.activity_main.*
 
-const  val USERNAME_TAG : String = "USER_TAG"
+//Tag para identificar o conteúdo do nome do usuário enviando por intent
+const val USERNAME_TAG : String = "usertag" // Valor constante e global - Pode ser acessado por qualquer activity, mas nenhuma activity pode alterar seu conteúdo
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_main) //Define o layout a ser utilizado
 
-        //Verifica se senha ou nome estão vazios.
-        btnLogin.setOnClickListener{
-            if(edtUserName.text.isNotEmpty() && edtUserPassword.text.isNotEmpty()){
-                //Efetuar Login - primeiro exemplo
-                //val intent = Intent(applicationContext, activity_usuario::class.java)
-                //startActivity(intent)
+        //A linha 20 define que o btnLogin possui um evento de click
 
-                val intent = Intent(applicationContext, activity_usuario::class.java).apply {
+        btnLogin.setOnClickListener {
+            if(edtUserName.text.isNotEmpty() && edtUserPassword.text.isNotEmpty() ){
+                //Comentários podem e DEVEM sempre iniciar com duas barras
+                //Toast.makeText(applicationContext, "Efetuando Login", Toast.LENGTH_SHORT).show()
+
+                //Construindo a ação para invocar a próxima tela.
+                //val intent = Intent(applicationContext , tela_usuario::class.java )
+
+                //Com o método putExtra, podemos enviar informações através de uma intent
+                val intent = Intent(applicationContext, tela_usuario::class.java).apply {
+
                     putExtra(USERNAME_TAG, edtUserName.text.toString())
 
                 }
+
+                //Outra forma de escrever a intent da linha 28 poderia ser:
+                
+
+
                 startActivity(intent)
+
+
+            }else{
+                Toast.makeText(applicationContext, "Falha de  Login", Toast.LENGTH_SHORT).show()
             }
-            else{
-                //Avisar o usuário que o login falhou
-                Toast.makeText(applicationContext, "O login falhou", Toast.LENGTH_SHORT).show()
-            }
+
         }
 
     }
