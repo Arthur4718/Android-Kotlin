@@ -11,7 +11,9 @@ class tela_usuario : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_usuario)
 
+        //Definindo uma variável para receber o conteúdo da intent
         val username = intent.getStringExtra(USERNAME_TAG)
+        //Exibindo o conteúdo num textview
         tvExibirNome.text = "Bem vindo: $username"
 
     }

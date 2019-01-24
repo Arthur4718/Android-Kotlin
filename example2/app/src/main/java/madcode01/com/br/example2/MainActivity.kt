@@ -1,6 +1,5 @@
 package madcode01.com.br.example2
 
-
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -34,12 +33,8 @@ class MainActivity : AppCompatActivity() {
 
                 }
 
-                //Outra forma de escrever a intent da linha 28 poderia ser:
                 
-
-
                 startActivity(intent)
-
 
             }else{
                 Toast.makeText(applicationContext, "Falha de  Login", Toast.LENGTH_SHORT).show()
