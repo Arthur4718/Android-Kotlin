@@ -8,15 +8,65 @@
         tools:context=".Tela_Cadastro">
 
     <android.support.design.widget.TextInputLayout
-            android:layout_width="395dp"
+            android:layout_width="347dp"
             android:layout_height="wrap_content"
+            android:hint="Nome Completo * "
+            android:id="@+id/inputLaytouNome"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="100dp"
             app:layout_constraintTop_toTopOf="parent">
-
-        <android.support.design.widget.TextInputEditText
+        <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Digite seu nome " android:inputType="text"/>
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtNomeCompleto" android:layout_weight="1"/>
     </android.support.design.widget.TextInputLayout>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:text="Obrigatório * "
+            app:layout_constraintStart_toStartOf="@+id/inputLaytouNome" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/inputLaytouNome" android:textSize="10sp"
+            android:layout_marginStart="2dp"/>
+    <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/inputLayoutEmail"
+            android:hint="E-mail *"
+            app:layout_constraintStart_toStartOf="@+id/inputLaytouNome"
+            app:layout_constraintEnd_toEndOf="@+id/inputLaytouNome" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView3">
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/edtEmail" android:layout_weight="1"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Informe sua idade * " app:hintEnabled="true"
+            app:layout_constraintStart_toStartOf="@+id/inputLayoutEmail"
+            app:layout_constraintEnd_toEndOf="@+id/inputLayoutEmail"
+            android:id="@+id/inputLayoutIdade" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/inputLayoutEmail">
+        <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/edtIdade" android:layout_weight="1"/>
+    </android.support.design.widget.TextInputLayout>
+    <Button
+            android:text="Concluir"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnConcluirForm1"
+            app:layout_constraintStart_toStartOf="@+id/inputLayoutIdade"
+            app:layout_constraintEnd_toEndOf="@+id/inputLayoutIdade" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/inputLayoutIdade" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </android.support.constraint.ConstraintLayout>
