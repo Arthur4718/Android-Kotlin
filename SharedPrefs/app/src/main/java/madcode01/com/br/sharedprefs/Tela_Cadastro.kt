@@ -1,5 +1,6 @@
 package madcode01.com.br.sharedprefs
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_tela__cadastro.*
@@ -12,11 +13,11 @@ class Tela_Cadastro : AppCompatActivity() {
 
         btnConcluirForm1.setOnClickListener {
 
-            enviarDados()
+            salvarDados()
         }
 
     }
-    private fun enviarDados(){
+    private fun salvarDados(){
 
         if(!validarNome()){
             return
@@ -28,17 +29,21 @@ class Tela_Cadastro : AppCompatActivity() {
             return
         }
 
-        
+        //Salvar Dados no shared prefs
+
+        val intentForm2 = Intent(this, Tela_Cadastro_2::class.java)
+        startActivity(intentForm2)
+
     }
 
     private fun validarNome(): Boolean {
         //Checar se os dados são validos!
         if(edtNomeCompleto.text.isEmpty()){
-            inputLaytouNome.error = "Preencha o nome por favor"
+            inputLayoutTelefone.error = "Preencha o nome por favor"
             return false
         }
         else{
-            inputLaytouNome.error = null
+            inputLayoutTelefone.error = null
         }
 
         return true
@@ -47,21 +52,21 @@ class Tela_Cadastro : AppCompatActivity() {
     private fun validarEmail(): Boolean{
 
         if(edtEmail.text.isEmpty()){
-            inputLayoutEmail.error = "Preencha o e-mail por favor"
+            inputCep.error = "Preencha o e-mail por favor"
             return false
         }
         else{
-            inputLayoutEmail.error = null
+            inputCep.error = null
         }
         return true
     }
     private fun validarIdade() : Boolean{
         if(edtIdade.text.isEmpty()){
-            inputLayoutIdade.error = "Preencha a idade por favor"
+            inputBairro.error = "Preencha a idade por favor"
             return false
         }
         else{
-            inputLayoutIdade.error = null
+            inputBairro.error = null
         }
         return true
     }

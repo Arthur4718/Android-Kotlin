@@ -5,12 +5,12 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Tela_Cadastro">
+        tools:context=".Tela_Cadastro_2">
 
     <android.support.design.widget.TextInputLayout
             android:layout_width="347dp"
             android:layout_height="wrap_content"
-            android:hint="Nome Completo * "
+            android:hint="Telefone de Contato * "
             android:id="@+id/inputLayoutTelefone"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="140dp"
@@ -18,9 +18,9 @@
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:inputType="textPersonName|phone"
                 android:ems="10"
-                android:id="@+id/edtNomeCompleto" android:layout_weight="1"/>
+                android:layout_weight="1" android:id="@+id/edtTelefone"/>
     </android.support.design.widget.TextInputLayout>
     <TextView
             android:layout_width="wrap_content"
@@ -34,21 +34,20 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/inputCep"
-            android:hint="E-mail *"
+            android:hint="CEP * "
             app:layout_constraintStart_toStartOf="@+id/inputLayoutTelefone"
             app:layout_constraintEnd_toEndOf="@+id/inputLayoutTelefone"
             android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/inputLayoutTelefone">
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
                 android:ems="10"
-                android:id="@+id/edtEmail" android:layout_weight="1"/>
+                android:id="@+id/edtCep" android:layout_weight="1"/>
     </android.support.design.widget.TextInputLayout>
     <android.support.design.widget.TextInputLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Informe sua idade * " app:hintEnabled="true"
+            android:hint="Informe Bairro ou Distrito * " app:hintEnabled="true"
             app:layout_constraintStart_toStartOf="@+id/inputCep"
             app:layout_constraintEnd_toEndOf="@+id/inputCep"
             android:id="@+id/inputBairro" android:layout_marginTop="32dp"
@@ -58,13 +57,13 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
                 android:ems="10"
-                android:id="@+id/edtIdade" android:layout_weight="1"/>
+                android:id="@+id/edtBairro" android:layout_weight="1"/>
     </android.support.design.widget.TextInputLayout>
     <Button
             android:text="Concluir"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnConcluirForm1"
+            android:id="@+id/btnConcluirForm2"
             app:layout_constraintEnd_toEndOf="@+id/inputBairro" android:layout_marginTop="32dp"
             app:layout_constraintTop_toBottomOf="@+id/inputBairro"
     />
