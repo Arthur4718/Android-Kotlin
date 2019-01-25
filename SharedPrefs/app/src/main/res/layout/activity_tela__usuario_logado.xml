@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Tela_UsuarioLogado">
+    <android.support.v7.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:id="@+id/cardViewUsuario" android:layout_marginTop="40dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="32dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="32dp" app:cardBackgroundColor="?attr/colorBackgroundFloating"
+            app:cardCornerRadius="6dp" app:cardElevation="6dp">
+        <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:text="Usuario:  "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/tvUsuarioLogado"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="16dp" android:layout_marginTop="16dp"
+                    app:layout_constraintTop_toTopOf="parent" android:textStyle="bold"
+                    android:textColor="@android:color/black"/>
+            <TextView
+                    android:text="Email: "
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/f"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintStart_toStartOf="@+id/tvUsuarioLogado" android:layout_marginTop="32dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvUsuarioLogado"
+                    app:layout_constraintEnd_toEndOf="@+id/tvUsuarioLogado"/>
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+    <Button
+            android:text="Deslogar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnDeslogar" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewUsuario"
+            app:layout_constraintEnd_toEndOf="@+id/cardViewUsuario"
+    />
+</android.support.constraint.ConstraintLayout>

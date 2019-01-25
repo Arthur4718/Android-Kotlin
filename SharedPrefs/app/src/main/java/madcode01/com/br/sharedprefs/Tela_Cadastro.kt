@@ -1,5 +1,6 @@
 package madcode01.com.br.sharedprefs
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -30,6 +31,13 @@ class Tela_Cadastro : AppCompatActivity() {
         }
 
         //Salvar Dados no shared prefs
+        val sharedPrefs = getSharedPreferences("USER_PREF", Context.MODE_PRIVATE)
+        var editor = sharedPrefs.edit()
+        editor.putString("username", edtNomeCompleto.text.toString())
+        editor.putString("user-email", edtEmail.text.toString())
+        editor.putString("user-idade", edtIdade.text.toString())
+        editor.commit()
+
 
         val intentForm2 = Intent(this, Tela_Cadastro_2::class.java)
         startActivity(intentForm2)

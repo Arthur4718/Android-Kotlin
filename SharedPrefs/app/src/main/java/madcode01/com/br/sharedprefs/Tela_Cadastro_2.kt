@@ -1,5 +1,6 @@
 package madcode01.com.br.sharedprefs
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_tela__cadastro_2.*
@@ -30,6 +31,8 @@ class Tela_Cadastro_2 : AppCompatActivity() {
         }
 
         //Abrir a tela seguinte
+        val intentTelaUsuario = Intent(this, Tela_UsuarioLogado::class.java)
+        startActivity(intentTelaUsuario)
     }
 
     private fun validarTelefone(): Boolean {
