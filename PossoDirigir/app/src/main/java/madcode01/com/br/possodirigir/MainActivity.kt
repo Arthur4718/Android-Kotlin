@@ -3,6 +3,7 @@ package madcode01.com.br.possodirigir
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AlertDialog
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -21,9 +22,31 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intentTela2)
 
             }else{
-                Toast.makeText(applicationContext, "Preencha os campo corretamente", Toast.LENGTH_SHORT).show()
+               //Usando alert builder
+
+                //Cria uma nova instância do Alert
+                val myAlert = AlertDialog.Builder(this)
+
+                //Seta o titulo do alerta
+                myAlert.setTitle("Aviso!")
+
+                //Define a mensagem que será enviada para o usuário.
+                myAlert.setMessage("Por favor preencha todos os campos")
+
+                myAlert.setPositiveButton("Sim"){dialog, which ->
+
+                }
+
+                val dialog: AlertDialog = myAlert.create()
+
+                dialog.show()
+
+
             }
 
         }
     }
+
+
+
 }
