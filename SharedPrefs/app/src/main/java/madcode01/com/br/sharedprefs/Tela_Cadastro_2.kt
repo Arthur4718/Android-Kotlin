@@ -1,5 +1,6 @@
 package madcode01.com.br.sharedprefs
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -31,6 +32,17 @@ class Tela_Cadastro_2 : AppCompatActivity() {
         }
 
         //Abrir a tela seguinte
+
+        val shareprefs = getSharedPreferences("USER_PREF", Context.MODE_PRIVATE)
+        val editor = shareprefs.edit()
+
+        editor.putString("telefone", edtTelefone.text.toString())
+        editor.putString("CEP", edtCep.text.toString())
+        editor.putString("bairro", edtCep.text.toString())
+        editor.putBoolean("usuarioLogado", true)
+        editor.commit()
+
+
         val intentTelaUsuario = Intent(this, Tela_UsuarioLogado::class.java)
         startActivity(intentTelaUsuario)
     }

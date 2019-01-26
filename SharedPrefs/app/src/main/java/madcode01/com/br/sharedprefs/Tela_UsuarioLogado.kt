@@ -16,6 +16,8 @@ class Tela_UsuarioLogado : AppCompatActivity() {
         val nomeUsuario = sharedPrefs.getString("username","NO NAME")
         tvUsuarioLogado.text = "Usuario: $nomeUsuario"
 
-        //Todo criar uma lógica para remover o usuário ja cadastrado
+        btnDeslogar.setOnClickListener {
+
+        }
     }
 }
