@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    val REQUEST_IMAGE_CAPTURE = 1
+    val REQUEST_IMAGE_CAPTURE = 2
 
      fun abrirCamera() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     fun abrirNovaTela(){
         val intentNovaTela = Intent(this, Tela2::class.java)
         startActivity(intentNovaTela)
@@ -58,8 +59,15 @@ class MainActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == REQUEST_SELECT_CONTACT && resultCode == RESULT_OK) {
             val contactUri: Uri = data!!.data
-            Toast.makeText(applicationContext, "Selected: $contactUri", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Selected: ", Toast.LENGTH_SHORT).show()
         }
+
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            val contactUri: Uri = data!!.data
+            Toast.makeText(applicationContext, "Photo Taken", Toast.LENGTH_SHORT).show()
+        }
+
+
     }
 }
 
