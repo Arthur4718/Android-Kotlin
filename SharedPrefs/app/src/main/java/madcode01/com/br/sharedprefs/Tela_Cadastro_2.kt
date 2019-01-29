@@ -50,12 +50,12 @@ class Tela_Cadastro_2 : AppCompatActivity() {
     private fun validarTelefone(): Boolean {
         
         if(edtTelefone.text.isEmpty()){
-            inputLayoutTelefone.error = "Por favor preencha o telefone"
+            inputLayoutNOme.error = "Por favor preencha o telefone"
             return false
 
         }
         else{
-            inputLayoutTelefone.error = null
+            inputLayoutNOme.error = null
         }
         return true
     }
@@ -63,12 +63,12 @@ class Tela_Cadastro_2 : AppCompatActivity() {
     private fun validarCEP(): Boolean {
 
         if(edtCep.text.isEmpty()){
-            inputCep.error = "Por favor preencha o CEP"
+            inputEmail.error = "Por favor preencha o CEP"
             return false
 
         }
         else{
-            inputCep.error = null
+            inputEmail.error = null
         }
         return true
 
@@ -77,12 +77,12 @@ class Tela_Cadastro_2 : AppCompatActivity() {
     private fun validarBairro(): Boolean {
 
         if(edtBairro.text.isEmpty()){
-            inputBairro.error = "Por favor preencha o Bairro"
+            inputIdade.error = "Por favor preencha o Bairro"
             return false
 
         }
         else{
-            inputBairro.error = null
+            inputIdade.error = null
         }
         return true
     }

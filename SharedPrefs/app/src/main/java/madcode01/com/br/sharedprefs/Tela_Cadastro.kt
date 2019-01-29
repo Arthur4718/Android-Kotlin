@@ -12,6 +12,8 @@ class Tela_Cadastro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela__cadastro)
 
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
         btnConcluirForm1.setOnClickListener {
 
             salvarDados()
@@ -33,11 +35,13 @@ class Tela_Cadastro : AppCompatActivity() {
 
         //Salvar Dados no shared prefs
         val sharedPrefs = getSharedPreferences("USER_PREF", Context.MODE_PRIVATE)
-        var editor = sharedPrefs.edit()
+        val editor = sharedPrefs.edit()
         editor.putString("username", edtNomeCompleto.text.toString())
-        editor.putString("user-email", edtEmail.text.toString())
-        editor.putString("user-idade", edtIdade.text.toString())
-        editor.commit()
+
+        editor.apply()
+
+
+
 
 
         val intentForm2 = Intent(this, Tela_Cadastro_2::class.java)
@@ -48,11 +52,11 @@ class Tela_Cadastro : AppCompatActivity() {
     private fun validarNome(): Boolean {
         //Checar se os dados são validos!
         if(edtNomeCompleto.text.isEmpty()){
-            inputLayoutTelefone.error = "Preencha o nome por favor"
+            inputLayoutNOme.error = "Preencha o nome por favor"
             return false
         }
         else{
-            inputLayoutTelefone.error = null
+            inputLayoutNOme.error = null
         }
 
         return true
@@ -61,21 +65,21 @@ class Tela_Cadastro : AppCompatActivity() {
     private fun validarEmail(): Boolean{
 
         if(edtEmail.text.isEmpty()){
-            inputCep.error = "Preencha o e-mail por favor"
+            inputEmail.error = "Preencha o e-mail por favor"
             return false
         }
         else{
-            inputCep.error = null
+            inputEmail.error = null
         }
         return true
     }
     private fun validarIdade() : Boolean{
         if(edtIdade.text.isEmpty()){
-            inputBairro.error = "Preencha a idade por favor"
+            inputIdade.error = "Preencha a idade por favor"
             return false
         }
         else{
-            inputBairro.error = null
+            inputIdade.error = null
         }
         return true
     }
