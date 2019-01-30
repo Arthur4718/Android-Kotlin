@@ -4,7 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
-import android.widget.Toast
+
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +36,15 @@ class MainActivity : AppCompatActivity() {
                 myAlert.setPositiveButton("Sim"){dialog, which ->
 
                 }
+
+                myAlert.setNegativeButton("Não"){dialog, which ->
+
+                }
+
+                myAlert.setNeutralButton("Cancel"){_,_ ->
+
+                }
+
 
                 val dialog: AlertDialog = myAlert.create()
 
