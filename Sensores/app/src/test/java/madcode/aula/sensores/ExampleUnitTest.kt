@@ -1,4 +1,4 @@
-package kotlin.aula.sensores
+package madcode.aula.sensores
 
 import org.junit.Test
 

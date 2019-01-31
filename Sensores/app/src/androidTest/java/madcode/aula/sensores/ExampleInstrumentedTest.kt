@@ -1,4 +1,4 @@
-package kotlin.aula.sensores
+package madcode.aula.sensores
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("kotlin.aula.sensores", appContext.packageName)
+        assertEquals("madcode.aula.sensores", appContext.packageName)
     }
 }
