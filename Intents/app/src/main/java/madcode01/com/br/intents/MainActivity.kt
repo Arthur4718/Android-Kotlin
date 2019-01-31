@@ -1,15 +1,12 @@
 package madcode01.com.br.intents
 
 import android.content.Intent
-import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.provider.MediaStore
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
-const val REQUEST_SELECT_CONTACT = 1
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,31 +15,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnAbrirCâmera.setOnClickListener {
+            //Chama a função que contem os passos pra lidar com a c
             abrirCamera()
         }
 
+
         btnAbrirContatos.setOnClickListener {
-            selectContact()
+            //Estes métodos estão comentados pois não utilizaremos eles neste momento.
+            //selecionarContato()
         }
 
         btnAbrirNovaTela.setOnClickListener{
-            abrirNovaTela()
+            //abrirNovaTela()
         }
 
-    }
-
-    fun selectContact() {
-        val intent = Intent(Intent.ACTION_PICK).apply {
-            type = ContactsContract.Contacts.CONTENT_TYPE
-        }
-        if (intent.resolveActivity(packageManager) != null) {
-            startActivityForResult(intent, REQUEST_SELECT_CONTACT)
-        }
     }
 
     val REQUEST_IMAGE_CAPTURE = 2
 
      fun abrirCamera() {
+
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
@@ -51,19 +43,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun abrirNovaTela(){
-        val intentNovaTela = Intent(this, Tela2::class.java)
-        startActivity(intentNovaTela)
-    }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_SELECT_CONTACT && resultCode == RESULT_OK) {
-            val contactUri: Uri = data!!.data
-            Toast.makeText(applicationContext, "Selected: ", Toast.LENGTH_SHORT).show()
-        }
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            val contactUri: Uri = data!!.data
+
             Toast.makeText(applicationContext, "Photo Taken", Toast.LENGTH_SHORT).show()
         }
 

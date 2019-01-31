@@ -12,7 +12,6 @@ class Tela_Cadastro : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela__cadastro)
 
-        actionBar.setDisplayHomeAsUpEnabled(true)
 
         btnConcluirForm1.setOnClickListener {
 
@@ -39,10 +38,6 @@ class Tela_Cadastro : AppCompatActivity() {
         editor.putString("username", edtNomeCompleto.text.toString())
 
         editor.apply()
-
-
-
-
 
         val intentForm2 = Intent(this, Tela_Cadastro_2::class.java)
         startActivity(intentForm2)

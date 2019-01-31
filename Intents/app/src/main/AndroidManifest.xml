@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="madcode01.com.br.intents">
 
-    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature
+            android:name="android.hardware.camera"
+            android:required="true"/>
 
     <application
             android:allowBackup="true"
@@ -11,6 +13,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+
         <activity android:name=".Tela2">
         </activity>
         <activity android:name=".MainActivity">

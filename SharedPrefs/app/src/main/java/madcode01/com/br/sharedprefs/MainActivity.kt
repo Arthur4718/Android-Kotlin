@@ -1,6 +1,4 @@
 package madcode01.com.br.sharedprefs
-
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -26,6 +24,9 @@ class MainActivity : AppCompatActivity() {
                 val intentTelaLogin = Intent(applicationContext, Tela_UsuarioLogado::class.java)
 
                 startActivity(intentTelaLogin)
+
+            }
+            else{
 
             }
         }
