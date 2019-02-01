@@ -3,10 +3,10 @@ package madcode.aula.multimidia
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 
-class SplashScreenActivity : AppCompatActivity() {
+class ListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splashscreen)
+        setContentView(R.layout.activity_list)
     }
 }
